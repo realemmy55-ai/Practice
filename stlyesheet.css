@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 body {
   font-family: "Hanken Grotesk", sans-serif;
   background: #0f1117;
@@ -265,4 +270,53 @@ button {
     justify-content: center;
     flex-wrap: wrap;
   }
+}
+
+/* Background flash for existing sections */
+.hero:target,
+.projects:target,
+.about:target,
+.cta:target {
+  animation: bgFlash 0.8s ease;
+}
+
+@keyframes bgFlash {
+  0% {
+    background-color: rgba(124, 140, 255, 0.25);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.project-card {
+  background: #171923;
+  border-radius: 16px;
+  padding: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+
+  height: 340px; /* Fixed card height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* keep text at top */
+}
+
+.project-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 14px;
+}
+
+.project-card p {
+  font-size: 14px;
+  opacity: 0.75;
+
+  display: -webkit-box; /* Flex for line clamping */
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* Max 3 lines visible */
+  overflow: hidden; /* Hide rest */
+  text-overflow: ellipsis; /* Add "..." for extra text */
 }
